@@ -136,7 +136,7 @@ export const ticketService = {
       if (deleteError) throw deleteError
 
       // Decrement upvotes count
-      const { error: updateError } = await supabase?.from('tickets')?.update({ upvotes: supabase?.sql`upvotes - 1` })?.eq('id', ticketId)
+      const { error: updateError } = await supabase?.from('tickets')?.update({ upvotes: supabase.sql`upvotes - 1` })?.eq('id', ticketId)
 
       if (updateError) throw updateError
       
